@@ -1,0 +1,3 @@
+The .csv.gz files in this folder are required for the notebooks. 
+They can be obtained by running convert.py given raw data files are provided in data-raw/ folder.
+Refer to the README file contained in that folder for more information on how to get them.

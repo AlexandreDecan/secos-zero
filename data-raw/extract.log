@@ -1,0 +1,32 @@
+Extracting data for Cargo, this could take some time...
+Loading data in memory
+.. 119560 versions and 553158 dependencies loaded
+Filtering dependencies based on "kind"
+.. 478760 remaining dependencies
+Removing unknown packages
+.. 21169 known packages
+.. 478534 remaining dependencies
+Exporting to compressed csv
+Deleting temporary files
+
+Extracting data for Packagist, this could take some time...
+Loading data in memory
+.. 1318125 versions and 6024561 dependencies loaded
+Filtering dependencies based on "kind"
+.. 4135264 remaining dependencies
+Removing unknown packages
+.. 167565 known packages
+.. 3755416 remaining dependencies
+Exporting to compressed csv
+Deleting temporary files
+
+Extracting data for NPM, this could take some time...
+Loading data in memory
+.. 6773910 versions and 80571841 dependencies loaded
+Filtering dependencies based on "kind"
+.. 33301899 remaining dependencies
+Removing unknown packages
+.. 924059 known packages
+.. 33224902 remaining dependencies
+Exporting to compressed csv
+Deleting temporary files

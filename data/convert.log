@@ -1,0 +1,61 @@
+Loading releases for Cargo
+Converting versions to semver syntax
+... 119558 releases converted
+... dropped 0 non-compliant versions
+... dropped 6410 prereleases and duplicated versions
+Ordering releases by version and date
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 20635/20635 [02:29<00:00, 137.86it/s]
+... merging results
+Persisting data on disk
+
+Loading dependencies for Cargo
+Filtering dependencies based on known packages and releases
+... dropped 1472 dependencies (unknown target)
+... dropped 44249 dependencies (unknown source)
+Converting constraints to intervals
+100%|██████████████████████████████████████████████████████████████████████████████████████████████| 3111/3111 [00:02<00:00, 1154.43it/s]
+... found 3111 distinct intervals
+Merge interval data with dependencies
+Persisting data on disk
+
+
+Loading releases for Packagist
+Converting versions to semver syntax
+... 1318125 releases converted
+... dropped 139658 non-compliant versions
+... dropped 88405 prereleases and duplicated versions
+Ordering releases by version and date
+100%|███████████████████████████████████████████████████████████████████████████████████████████| 142131/142131 [17:08<00:00, 138.24it/s]
+... merging results
+Persisting data on disk
+
+Loading dependencies for Packagist
+Filtering dependencies based on known packages and releases
+... dropped 53710 dependencies (unknown target)
+... dropped 621557 dependencies (unknown source)
+Converting constraints to intervals
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 18081/18081 [00:44<00:00, 409.49it/s]
+... found 18081 distinct intervals
+Merge interval data with dependencies
+Persisting data on disk
+
+
+Loading releases for NPM
+Converting versions to semver syntax
+... 6773833 releases converted
+... dropped 0 non-compliant versions
+... dropped 745902 prereleases and duplicated versions
+Ordering releases by version and date
+100%|█████████████████████████████████████████████████████████████████████████████████████████| 902455/902455 [1:47:23<00:00, 140.05it/s]
+... merging results
+Persisting data on disk
+
+Loading dependencies for NPM
+Filtering dependencies based on known packages and releases
+... dropped 91850 dependencies (unknown target)
+... dropped 4746581 dependencies (unknown source)
+Converting constraints to intervals
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 66165/66165 [01:36<00:00, 686.05it/s]
+... found 66165 distinct intervals
+Merge interval data with dependencies
+Persisting data on disk
