@@ -39,6 +39,40 @@ if __name__ == '__main__':
             .dropna()
         )
 
+        if ecosystem == 'NPM':
+            print('Removing spam packages from npm')
+            exclude_prefixes = ('@ryancavanaugh/pkg', 'all-packages-', 'cool-', 'neat-', 'wowdude-', 'npmdoc-', 'npmtest-', 'npm-ghost-',)
+            exclude_suffixes = ('-cdn',)
+            exclude_ghost = r'^ghost-\d+$'
+
+            n, m = len(df_releases), df_releases['package'].nunique()
+            df_releases = (
+                df_releases
+                [lambda d: ~d['package'].str.startswith(exclude_prefixes)]
+                [lambda d: ~d['package'].str.endswith(exclude_suffixes)]
+                [lambda d: ~d['package'].str.match(exclude_ghost)]
+            )
+            print('... dropped {} packages and {} versions'.format(
+                df_releases['package'].nunique() - m, 
+                len(df_releases) - n,
+            ))
+            
+        elif ecosystem == 'Packagist':
+            print('Removing spam packages from packagist')
+            exclude_subwords = ('/watch-',)
+            
+            n, m = len(df_releases), df_releases['package'].nunique()
+            for sw in exclude_subwords:
+                df_releases = (
+                    df_releases
+                    [lambda d: ~d['package'].str.contains(sw)]
+                )
+                
+            print('... dropped {} packages and {} versions'.format(
+                df_releases['package'].nunique() - m, 
+                len(df_releases) - n,
+            ))
+        
         print('Converting versions to semver syntax')
         df_releases[['major', 'minor', 'patch', 'misc']] = df_releases['version'].str.extract(Version.RE, expand=True)
         df_releases[['major', 'minor', 'patch']] = df_releases[['major', 'minor', 'patch']].astype(float)
