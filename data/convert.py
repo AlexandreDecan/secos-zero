@@ -53,8 +53,8 @@ if __name__ == '__main__':
                 [lambda d: ~d['package'].str.match(exclude_ghost)]
             )
             print('... dropped {} packages and {} versions'.format(
-                df_releases['package'].nunique() - m, 
-                len(df_releases) - n,
+                m - df_releases['package'].nunique(), 
+                n - len(df_releases),
             ))
             
         elif ecosystem == 'Packagist':
@@ -69,8 +69,8 @@ if __name__ == '__main__':
                 )
                 
             print('... dropped {} packages and {} versions'.format(
-                df_releases['package'].nunique() - m, 
-                len(df_releases) - n,
+                m - df_releases['package'].nunique(), 
+                n - len(df_releases),
             ))
         
         print('Converting versions to semver syntax')

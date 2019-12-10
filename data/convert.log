@@ -1,0 +1,61 @@
+Loading releases for Cargo
+Converting versions to semver syntax
+... 119558 releases converted
+... dropped 0 non-compliant versions
+... dropped 6410 prereleases and duplicated versions
+Ordering releases by version and date
+... merging results
+Persisting data on disk
+
+Loading dependencies for Cargo
+Filtering dependencies based on known packages and releases
+... dropped 1472 dependencies (unknown target)
+... dropped 44249 dependencies (unknown source)
+Converting constraints to intervals
+... found 3111 distinct intervals
+Merge interval data with dependencies
+Persisting data on disk
+
+
+Loading releases for Packagist
+Removing spam packages from packagist
+... dropped 21 packages and 1184 versions
+Converting versions to semver syntax
+... 1316941 releases converted
+... dropped 139628 non-compliant versions
+... dropped 88403 prereleases and duplicated versions
+Ordering releases by version and date
+... merging results
+Persisting data on disk
+
+Loading dependencies for Packagist
+Filtering dependencies based on known packages and releases
+... dropped 53861 dependencies (unknown target)
+... dropped 622251 dependencies (unknown source)
+Converting constraints to intervals
+... found 18081 distinct intervals
+Merge interval data with dependencies
+Persisting data on disk
+
+
+Loading releases for NPM
+Removing spam packages from npm
+... dropped 22457 packages and 49870 versions
+Converting versions to semver syntax
+... 6723963 releases converted
+... dropped 0 non-compliant versions
+... dropped 745885 prereleases and duplicated versions
+Ordering releases by version and date
+... merging results
+Persisting data on disk
+
+Loading dependencies for NPM
+Filtering dependencies based on known packages and releases
+... dropped 93001 dependencies (unknown target)
+... dropped 5257732 dependencies (unknown source)
+Converting constraints to intervals
+... found 66159 distinct intervals
+Merge interval data with dependencies
+Persisting data on disk
+
+
