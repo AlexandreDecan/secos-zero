@@ -1,8 +1,7 @@
 This folder contains the raw data required to produce the content of the "data" folder. 
 
-To populate this folder, first download snapshot 1.4.0 of libraries.io dataset that can be found on https://zenodo.org/record/2536573, extract versions.csv and dependencies.csv from this archive then run "python extract.py". 
+To populate this folder, first download snapshot 1.6.0 of libraries.io dataset that can be found on https://zenodo.org/record/2536573, extract versions.csv and dependencies.csv from this archive then run "python extract.py". 
 
 This script will produce two new files for each selected ecosystem: 
  - releases.csv.gz that contains the release informations;
  - dependencies.csv.gz that contains the dependency relationship informations.
- 

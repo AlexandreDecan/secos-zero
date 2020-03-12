@@ -3,11 +3,11 @@ import subprocess
 import os
 
 # Selected ecosystem names (see libraries.io)
-ECOSYSTEMS = ['Cargo', 'Packagist', 'NPM']
+ECOSYSTEMS = ['Cargo', 'Packagist', 'NPM', 'Rubygems']
 # Version of the libraries.io dataset
-LIBRARIESIO_VERSION = '1.4.0-2018-12-22'
+LIBRARIESIO_VERSION = '1.6.0-2020-01-12'
 # Location of the libraries.io dataset
-PATH_TO_LIBRARIESIO = '/home/alexandre/librariesio/'
+PATH_TO_LIBRARIESIO = '/data/libio1.6/'
 
 # Fields to keep for "version-[...].csv"
 VERSION_FIELDS = {
@@ -31,11 +31,19 @@ DEPENDENCY_KEPT_KINDS = {
     'Cargo': ['normal', 'runtime'],
     'Packagist': ['runtime'],
     'NPM': ['runtime'],
+    'Rubygems': ['runtime'],
+}
+# Optimization purposes:
+DATA_TYPES = {
+    'platform': 'category',
+    'kind': 'category',
+    'target': 'category',
+    'constraint': 'category',
 }
 
 if __name__ == '__main__':
     for ecosystem in ECOSYSTEMS:
-        if os.path.isfile('{}-versions.csv.gz'.format(ecosystem)) and os.path.isfile('{}-dependencies.csv.gz'.format(ecosystem)):
+        if os.path.isfile('{}-releases.csv.gz'.format(ecosystem)) and os.path.isfile('{}-dependencies.csv.gz'.format(ecosystem)):
             print('Skipping {}'.format(ecosystem))
             continue
             
@@ -55,14 +63,16 @@ if __name__ == '__main__':
             'temp-releases.csv',
             index_col=False,
             engine='c',
-            usecols=list(VERSION_FIELDS.keys())
+            usecols=list(VERSION_FIELDS.keys()),
+            dtype={k: DATA_TYPES.get(v, 'object') for k, v in VERSION_FIELDS.items()},
         ).rename(columns=VERSION_FIELDS).query('platform == "{}"'.format(ecosystem))
 
         df_deps = pandas.read_csv(
             'temp-dependencies.csv',
             index_col=False,
             engine='c',
-            usecols=list(DEPENDENCY_FIELDS.keys())
+            usecols=list(DEPENDENCY_FIELDS.keys()),
+            dtype={k: DATA_TYPES.get(v, 'object') for k, v in DEPENDENCY_FIELDS.items()},
         ).rename(columns=DEPENDENCY_FIELDS).query('platform == "{0}" and target_platform == "{0}"'.format(ecosystem))
         print('.. {} versions and {} dependencies loaded'.format(len(df_releases), len(df_deps)))
 

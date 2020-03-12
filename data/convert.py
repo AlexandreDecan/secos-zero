@@ -16,13 +16,14 @@ import os
 
 from version import Version
 from parsers import parse_or_empty
-from parsers import PackagistParser, NPMParser, CargoParser
+from parsers import PackagistParser, NPMParser, CargoParser, RubyGemsParser
 
-ECOSYSTEMS = ['Cargo', 'Packagist', 'NPM']
+ECOSYSTEMS = ['Cargo', 'Packagist', 'NPM', 'Rubygems']
 PARSERS = {
     'Cargo': CargoParser,
     'Packagist': PackagistParser,
     'NPM': NPMParser,
+    'Rubygems': RubyGemsParser,
 }
 
 if __name__ == '__main__':

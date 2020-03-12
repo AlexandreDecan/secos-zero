@@ -1,60 +1,79 @@
 Loading releases for Cargo
 Converting versions to semver syntax
-... 119558 releases converted
+... 195009 releases converted
 ... dropped 0 non-compliant versions
-... dropped 6410 prereleases and duplicated versions
+... dropped 11948 prereleases and duplicated versions
 Ordering releases by version and date
 ... merging results
 Persisting data on disk
 
 Loading dependencies for Cargo
 Filtering dependencies based on known packages and releases
-... dropped 1472 dependencies (unknown target)
-... dropped 44249 dependencies (unknown source)
+... dropped 3243 dependencies (unknown target)
+... dropped 86575 dependencies (unknown source)
 Converting constraints to intervals
-... found 3111 distinct intervals
+... found 4370 distinct intervals
 Merge interval data with dependencies
 Persisting data on disk
 
 
 Loading releases for Packagist
 Removing spam packages from packagist
-... dropped 21 packages and 1184 versions
+... dropped 23 packages and 1159 versions
 Converting versions to semver syntax
-... 1316941 releases converted
-... dropped 139628 non-compliant versions
-... dropped 88403 prereleases and duplicated versions
+... 1765417 releases converted
+... dropped 136485 non-compliant versions
+... dropped 109558 prereleases and duplicated versions
 Ordering releases by version and date
 ... merging results
 Persisting data on disk
 
 Loading dependencies for Packagist
 Filtering dependencies based on known packages and releases
-... dropped 53861 dependencies (unknown target)
-... dropped 622251 dependencies (unknown source)
+... dropped 67066 dependencies (unknown target)
+... dropped 707749 dependencies (unknown source)
 Converting constraints to intervals
-... found 18081 distinct intervals
+... found 23478 distinct intervals
 Merge interval data with dependencies
 Persisting data on disk
 
 
 Loading releases for NPM
 Removing spam packages from npm
-... dropped 22457 packages and 49870 versions
+... dropped 22617 packages and 50610 versions
 Converting versions to semver syntax
-... 6723963 releases converted
+... 11350022 releases converted
 ... dropped 0 non-compliant versions
-... dropped 745885 prereleases and duplicated versions
+... dropped 1966616 prereleases and duplicated versions
 Ordering releases by version and date
 ... merging results
 Persisting data on disk
 
 Loading dependencies for NPM
 Filtering dependencies based on known packages and releases
-... dropped 93001 dependencies (unknown target)
-... dropped 5257732 dependencies (unknown source)
+... dropped 296564 dependencies (unknown target)
+... dropped 14118533 dependencies (unknown source)
 Converting constraints to intervals
-... found 66159 distinct intervals
+... found 96281 distinct intervals
+Merge interval data with dependencies
+Persisting data on disk
+
+
+Loading releases for Rubygems
+Converting versions to semver syntax
+... 1055872 releases converted
+... dropped 22005 non-compliant versions
+... dropped 78295 prereleases and duplicated versions
+Ordering releases by version and date
+... merging results
+Persisting data on disk
+
+Loading dependencies for Rubygems
+Filtering dependencies based on known packages and releases
+... dropped 25585 dependencies (unknown target)
+... dropped 331839 dependencies (unknown source)
+Converting constraints to intervals
+... found 20619 distinct intervals
 Merge interval data with dependencies
 Persisting data on disk
 

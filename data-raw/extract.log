@@ -1,32 +1,43 @@
 Extracting data for Cargo, this could take some time...
 Loading data in memory
-.. 119560 versions and 553158 dependencies loaded
+.. 195011 versions and 1027098 dependencies loaded
 Filtering dependencies based on "kind"
-.. 478760 remaining dependencies
+.. 885976 remaining dependencies
 Removing unknown packages
-.. 21169 known packages
-.. 478534 remaining dependencies
+.. 35588 known packages
+.. 885769 remaining dependencies
 Exporting to compressed csv
 Deleting temporary files
 
 Extracting data for Packagist, this could take some time...
 Loading data in memory
-.. 1318125 versions and 6024561 dependencies loaded
+.. 1766576 versions and 8987260 dependencies loaded
 Filtering dependencies based on "kind"
-.. 4135264 remaining dependencies
+.. 6173133 remaining dependencies
 Removing unknown packages
-.. 167565 known packages
-.. 3755416 remaining dependencies
+.. 208469 known packages
+.. 5501720 remaining dependencies
 Exporting to compressed csv
 Deleting temporary files
 
 Extracting data for NPM, this could take some time...
 Loading data in memory
-.. 6773910 versions and 80571841 dependencies loaded
+.. 11400714 versions and 154914771 dependencies loaded
 Filtering dependencies based on "kind"
-.. 33301899 remaining dependencies
+.. 63336728 remaining dependencies
 Removing unknown packages
-.. 924059 known packages
-.. 33224902 remaining dependencies
+.. 1273579 known packages
+.. 63142904 remaining dependencies
+Exporting to compressed csv
+Deleting temporary files
+
+Extracting data for Rubygems, this could take some time...
+Loading data in memory
+.. 1055874 versions and 5732633 dependencies loaded
+Filtering dependencies based on "kind"
+.. 2757763 remaining dependencies
+Removing unknown packages
+.. 161457 known packages
+.. 2754420 remaining dependencies
 Exporting to compressed csv
 Deleting temporary files
