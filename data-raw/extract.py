@@ -26,6 +26,21 @@ DEPENDENCY_FIELDS = {
     'Dependency Requirements': 'constraint',
     'Dependency Platform': 'target_platform'
 }
+# Fields to keep for "projects_with_repository_fields-[...].csv"
+REPOSITORY_FIELDS = {
+    'Platform': 'platform',
+    'Name': 'package',
+    'Repository Host Type': 'host',
+    'Repository URL': 'repository',
+    'Repository Created Timestamp': 'date',
+    'Dependent Projects Count': 'dependent_packages',
+    'Dependent Repositories Count': 'dependent_projects',
+    'Repository Stars Count': 'stars',
+    'Repository Forks Count': 'forks',
+    'Repository Watchers Count': 'watchers',
+    'Repository Open Issues Count': 'issues',
+    'Repository Contributors Count': 'contributors',
+}
 # Kind of dependencies to keep 
 DEPENDENCY_KEPT_KINDS = {
     'Cargo': ['normal', 'runtime'],
@@ -39,11 +54,12 @@ DATA_TYPES = {
     'kind': 'category',
     'target': 'category',
     'constraint': 'category',
+    'host': 'category',
 }
 
 if __name__ == '__main__':
     for ecosystem in ECOSYSTEMS:
-        if os.path.isfile('{}-releases.csv.gz'.format(ecosystem)) and os.path.isfile('{}-dependencies.csv.gz'.format(ecosystem)):
+        if os.path.isfile('{}-releases.csv.gz'.format(ecosystem)) and os.path.isfile('{}-dependencies.csv.gz'.format(ecosystem)) and os.path.isfile('{}-repositories.csv.gz'.format(ecosystem)):
             print('Skipping {}'.format(ecosystem))
             continue
             
@@ -58,6 +74,11 @@ if __name__ == '__main__':
             subprocess.call(['head', '-1', filename], stdout=out)
             subprocess.call(['grep', ',{},'.format(ecosystem), filename], stdout=out)    
 
+        with open('temp-repositories.csv', 'w') as out:
+            filename = os.path.join(PATH_TO_LIBRARIESIO, 'projects_with_repository_fields-{}.csv'.format(LIBRARIESIO_VERSION))
+            subprocess.call(['head', '-1', filename], stdout=out)
+            subprocess.call(['grep', ',{},'.format(ecosystem), filename], stdout=out)    
+            
         print('Loading data in memory')
         df_releases = pandas.read_csv(
             'temp-releases.csv',
@@ -92,6 +113,20 @@ if __name__ == '__main__':
         df_deps = df_deps[df_deps['target'].isin(packages)]
         print('.. {} remaining dependencies'.format(len(df_deps)))
 
+        print('Loading projects with repository')
+        df_repo = pandas.read_csv(
+            'temp-repositories.csv',
+            index_col=False,
+            engine='c',
+            usecols=list(REPOSITORY_FIELDS.keys()),
+            dtype={k: DATA_TYPES.get(v, 'object') for k, v in REPOSITORY_FIELDS.items()},
+        ).rename(columns=REPOSITORY_FIELDS).query('platform == "{0}" and host == "{1}"'.format(ecosystem, 'GitHub'))
+        print('.. {} repositories'.format(len(df_repo)))
+        
+        print('Removing unknown packages')
+        df_repo = df_repo[df_repo['package'].isin(packages)]
+        print('.. {} remaining repositories'.format(len(df_repo)))
+        
         print('Exporting to compressed csv')
         df_releases[['package', 'version', 'date']].to_csv(
             '{}-releases.csv.gz'.format(ecosystem),
@@ -104,8 +139,16 @@ if __name__ == '__main__':
             index=False,
             compression='gzip',
         )
+        
+        df_repo[['package', 'repository', 'date', 'dependent_projects', 'stars', 'forks', 'watchers', 'issues', 'contributors']].to_csv(
+            '{}-repositories.csv.gz'.format(ecosystem),
+            index=False,
+            compression='gzip',
+        )
+        
         print('Deleting temporary files')
         subprocess.call(['rm', 'temp-releases.csv'])
         subprocess.call(['rm', 'temp-dependencies.csv'])
+        subprocess.call(['rm', 'temp-repositories.csv'])
         print()
-    
+        

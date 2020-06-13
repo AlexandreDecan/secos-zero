@@ -6,6 +6,10 @@ Filtering dependencies based on "kind"
 Removing unknown packages
 .. 35588 known packages
 .. 885769 remaining dependencies
+Loading projects with repository
+.. 26190 repositories
+Removing unknown packages
+.. 26136 remaining repositories
 Exporting to compressed csv
 Deleting temporary files
 
@@ -17,6 +21,10 @@ Filtering dependencies based on "kind"
 Removing unknown packages
 .. 208469 known packages
 .. 5501720 remaining dependencies
+Loading projects with repository
+.. 291133 repositories
+Removing unknown packages
+.. 196925 remaining repositories
 Exporting to compressed csv
 Deleting temporary files
 
@@ -28,6 +36,10 @@ Filtering dependencies based on "kind"
 Removing unknown packages
 .. 1273579 known packages
 .. 63142904 remaining dependencies
+Loading projects with repository
+.. 775460 repositories
+Removing unknown packages
+.. 774240 remaining repositories
 Exporting to compressed csv
 Deleting temporary files
 
@@ -39,5 +51,9 @@ Filtering dependencies based on "kind"
 Removing unknown packages
 .. 161457 known packages
 .. 2754420 remaining dependencies
+Loading projects with repository
+.. 106836 repositories
+Removing unknown packages
+.. 106767 remaining repositories
 Exporting to compressed csv
 Deleting temporary files

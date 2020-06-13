@@ -29,7 +29,7 @@ PARSERS = {
 if __name__ == '__main__':
     for ecosystem in ECOSYSTEMS:
         # Skip ecosystems for which we already have data
-        if os.path.isfile('./{}-releases.csv.gz'.format(ecosystem)) and os.path.isfile('./{}-dependencies.csv.gz'.format(ecosystem)):
+        if os.path.isfile('./{}-releases.csv.gz'.format(ecosystem)) and os.path.isfile('./{}-dependencies.csv.gz'.format(ecosystem)) and os.path.isfile('./{}-repositories.csv.gz'.format(ecosystem)):
             print('Skipping {}...'.format(ecosystem))
             continue
             
@@ -189,6 +189,24 @@ if __name__ == '__main__':
         print('Persisting data on disk')
         df_dependencies.to_csv('./{}-dependencies.csv.gz'.format(ecosystem), index=False, compression='gzip')
         
+        print()
+             
+        print('Loading repositories for {}'.format(ecosystem))
+        df_repo = (
+            pandas.read_csv('../data-raw/{}-repositories.csv.gz'.format(ecosystem))
+            .dropna()
+        )
+        
+        print('Filtering unknown packages')
+        n = len(df_repo)
+        df_repo = (
+            df_repo
+            [lambda d: d['package'].isin(df_releases['package'])]
+        )
+        print('... dropped {} repositories (unknown packages)'.format(n - len(df_repo)))
+        
+        print('Persisting data on disk')
+        df_repo.to_csv('./{}-repositories.csv.gz'.format(ecosystem), index=False, compression='gzip')
         
         print()
         print()
