@@ -40,6 +40,7 @@ REPOSITORY_FIELDS = {
     'Repository Watchers Count': 'watchers',
     'Repository Open Issues Count': 'issues',
     'Repository Contributors Count': 'contributors',
+    'Repository Size': 'size',
 }
 # Kind of dependencies to keep 
 DEPENDENCY_KEPT_KINDS = {
@@ -140,7 +141,7 @@ if __name__ == '__main__':
             compression='gzip',
         )
         
-        df_repo[['package', 'repository', 'date', 'dependent_projects', 'stars', 'forks', 'watchers', 'issues', 'contributors']].to_csv(
+        df_repo[['package', 'repository', 'date', 'dependent_projects', 'stars', 'forks', 'watchers', 'issues', 'contributors', 'size']].to_csv(
             '{}-repositories.csv.gz'.format(ecosystem),
             index=False,
             compression='gzip',
